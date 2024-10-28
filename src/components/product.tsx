@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@mui/material";
+import { Box, Card, CardContent, CardHeader } from "@mui/material";
 import ProductComponent from "./productComponent";
 import ProductComponentCard from "./productComponent";
 
@@ -23,7 +23,13 @@ const Product = ({ product }: ProductProps) => {
   const productCards = product.components.map((p) => (
     <ProductComponentCard productComponent={p}></ProductComponentCard>
   ));
-  return <div>{productCards}</div>;
+  return (
+    <Box display="flex" flexDirection="column" gap={2}>
+      {" "}
+      {/* Use gap for spacing */}
+      {productCards}
+    </Box>
+  );
 };
 
 export default Product;
