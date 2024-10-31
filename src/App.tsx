@@ -1,18 +1,22 @@
-import React from "react";
-import logo from "./logo.svg";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Product from "./components/product";
-import type { BugProduct } from "./components/product";
 import ProductList from "./components/productList";
+import BugList from "./components/bugList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
         <ProductList bugzillaURL="https://bugzilla.kernel.org"></ProductList>
-      </header>
-    </div>
-  );
+      ),
+    },
+    {
+      path: "/product/:product",
+      element: <BugList></BugList>,
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;
