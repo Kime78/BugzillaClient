@@ -16,7 +16,7 @@ type ProductProps = {
 const Product = ({ product }: ProductProps) => {
   return (
     <Box display="flex" flexDirection="column" gap={2}>
-      <h2>{product.name}</h2>
+      <h2 style={{ color: "black" }}>{product.name}</h2>
       {product.components?.map((p) => (
         <ProductComponentCard productComponent={p} key={p.id} />
       ))}

@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# Bugzilla Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple Bugzilla client built in React.
 
-Currently, two official plugins are available:
+## Challenges
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Search Bar**  
+  I faced a tough choice between using Bugzilla’s built-in API search capabilities or implementing a custom, client-side filtering solution. Filtering by hand meant sacrificing a global search feature, as it would require fetching and filtering all data on the client side. However, this approach offered faster, responsive searching on the "Products" page since it worked on a single fetched data array. Ultimately, I chose to focus on speed and opted for a custom search limited to the "Products" page, prioritizing performance over broader search capabilities.
 
-## Expanding the ESLint configuration
+- **Styling**  
+  Designing an appealing UI was challenging, as I don’t have extensive experience with UI/UX design. I tackled this by relying on patience, utilizing Material UI for pre-built components, and drawing on some basic knowledge of color palettes.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Understanding the API**  
+  Initially, I struggled to understand the Bugzilla API structure. However, by building small components and making incremental API calls, I gradually developed a clear understanding of how it worked.
 
-- Configure the top-level `parserOptions` property like this:
+- **Learning React**  
+  Since this was my first project using React, there was a learning curve. Over time, however, I became more comfortable, and things began to fall into place.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+- **Switching from Create-React-App to Vite**  
+  I initially set up the project using Create React App, only to realize it was deprecated and causing issues due to mismatched TypeScript versions. I switched to Vite with minimal effort, and everything worked as expected.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Design Decisions
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+- I chose the Bugzilla API for this project because it was open and didn’t require authentication.
+- Material UI was selected for its ready-to-use components, which helped simplify the design process.
+- Vite was chosen as the project starter because it’s modern and performs better than Create React App.
+- I used the OpenAPI TypeScript library to autogenerate TypeScript typings for the Bugzilla API, which greatly streamlined development.

@@ -12,7 +12,7 @@ const ProductComponentCard = ({ productComponent }: ProductComponentProps) => {
     if (productComponent.id) navigate(`/product/${productComponent.name}`);
   };
   return (
-    <Card>
+    <Card sx={{ backgroundColor: "#e8e9eb" }}>
       <CardActionArea onClick={handleClick}>
         <CardHeader
           title={productComponent.name}

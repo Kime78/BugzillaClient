@@ -3,7 +3,7 @@ import Product, { BugProduct } from "./product";
 import { CircularProgress } from "@mui/material";
 import { api } from "../lib/api";
 
-const ProductList = ({ bugzillaURL }: { bugzillaURL: string }) => {
+const ProductList = () => {
   const [productList, setProductList] = useState<BugProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
@@ -35,7 +35,7 @@ const ProductList = ({ bugzillaURL }: { bugzillaURL: string }) => {
   return (
     <div>
       {productList.map((p) => (
-        <Product key={p.name} product={p} />
+        <Product key={p.id} product={p} />
       ))}
     </div>
   );
